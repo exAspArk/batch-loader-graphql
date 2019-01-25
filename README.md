@@ -1,24 +1,17 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Run:
 
-Things you may want to cover:
+```
+bundle install
+bundle exec rake db:create db:migrate db:seed
+bundle exec rails s
+```
 
-* Ruby version
+## Try:
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+curl 'http://localhost:3000/graphql' \
+  -H 'Content-Type: application/json' \
+  --data-binary '{"query":"{ posts { title user { name } } }"}'
+```
